@@ -35,3 +35,9 @@
 //     // Cancel the default action to avoid it being handled twice
 //     event.preventDefault();
 //   }, true);
+
+// let a = 'sdf+-'
+
+// if (a.endsWith('+') || a.endsWith('-')) {
+//     console.log('yes')
+// }

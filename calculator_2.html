@@ -4,96 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Калькулятор</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="display" id="res">
-            
-        </div>
-        <div class="buttons">
-            <button 
-                onclick="buttonClick('clear')" 
-                class="button" id="clear">C</button>
-
-            <button 
-                onclick="buttonClick('clear_1')" 
-                class="button" id="clear_1">&lt;</button>
-
-            <button 
-                onclick="buttonClick('%')" 
-                class="button" id="%">%</button>
-
-            <button 
-                onclick="buttonClick('**')" 
-                class="button" id="**">**</button>
-
-            <button 
-                onclick="buttonClick('7')" 
-                class="button" id="7">7</button>
-
-            <button 
-                onclick="buttonClick('8')" 
-                class="button" id="8">8</button>
-
-            <button 
-                onclick="buttonClick('9')" 
-                class="button" id="9">9</button>
-
-            <button 
-                onclick="buttonClick('+')" 
-                class="button" id="+">+</button>
-
-            <button 
-                onclick="buttonClick('4')" 
-                class="button" id="4">4</button>
-
-            <button 
-                onclick="buttonClick('5')" 
-                class="button" id="5">5</button>
-
-            <button 
-                onclick="buttonClick('6')" 
-                class="button" id="6">6</button>
-
-            <button 
-                onclick="buttonClick('-')" 
-                class="button" id="-">-</button>
-
-            <button
-                onclick="buttonClick('1')" 
-                class="button" id="1">1</button>
-
-            <button 
-                onclick="buttonClick('2')" 
-                class="button" id="2">2</button>
-
-            <button 
-                onclick="buttonClick('3')" 
-                class="button" id="3">3</button>
-
-            <button 
-                onclick="buttonClick('*')" 
-                class="button" id="*">*</button>
-
-            <button 
-                onclick="buttonClick('0')" 
-                class="button" id="0">0</button>
-
-            <button
-                onclick="buttonClick('.')"
-                class="button" id=".">.</button>
-
-            <button 
-                onclick="buttonClick('/')"
-                class="button" id="/">/</button>
-
-            <button
-                onclick="buttonClick('=')"
-                class="button" id="=">=</button>
-        </div>
+    <div>
+        <input 
+            class="number_1" 
+            type="text" 
+            placeholder="Число 1">
+        <input 
+            class="number_2" 
+            type="text" 
+            placeholder="Число 2">
+        <button class="plus">+</button>
+        <button class="min">-</button>
+        <button class="kob">*</button>
+        <button class="del">/</button>
+        <button class="step">**</button>
+        <button class="ostat">%</button>
+        <button class="kub">x<sup>3</sup></button>
     </div>
-    <script src="calc.js" defer></script>
+    <h1>
+        Результат: <span class="result">0</span> <span class="palka"></span> <span class="result_2"></span>
+    </h1>
+    <script>
+        let num1 = document.querySelector('.number_1')
+        let num2 = document.querySelector('.number_2')
+        let but_plus = document.querySelector('.plus')
+        let but_min = document.querySelector('.min')
+        let but_kob = document.querySelector('.kob')
+        let but_del = document.querySelector('.del')
+        let but_step = document.querySelector('.step')
+        let but_ostat = document.querySelector('.ostat')
+        let but_kub = document.querySelector('.kub')
+        let res = document.querySelector('.result')
+        let res_2 = document.querySelector('.result_2')
+        let palka = document.querySelector('.palka')
+        but_plus.onclick = function() {
+            res.innerHTML = `${num1.value} + ${num2.value} = ${(Number(num1.value) + Number(num2.value)).toFixed(2)}`
+        }
+        but_min.onclick = function() {
+            res.innerHTML = `${num1.value} - ${num2.value} = ${(Number(num1.value) - Number(num2.value)).toFixed(2)}`
+        }
+        but_kob.onclick = function() {
+            res.innerHTML = `${num1.value} * ${num2.value} = ${(Number(num1.value) * Number(num2.value)).toFixed(2)}`
+        }
+        but_del.onclick = function() {
+            res.innerHTML = `${num1.value} / ${num2.value} = ${(Number(num1.value) / Number(num2.value)).toFixed(2)}`
+        }
+        but_step.onclick = function() {
+            res.innerHTML = `${num1.value} ** ${num2.value} = ${(Number(num1.value) ** Number(num2.value)).toFixed(2)}`
+        }
+        but_ostat.onclick = function() {
+            res.innerHTML = `${num1.value} % ${num2.value} = ${(Number(num1.value) % Number(num2.value)).toFixed(2)}`
+        }
+        but_kub.onclick = function() {
+            if (num2.value == false) {
+                res.innerHTML = `${num1.value} x3 = ${(Number(num1.value) ** 3)}`
+                palka.innerHTML = ''
+                res_2.innerHTML = ''
+            }
+            else if (num1.value == false) {
+                res.innerHTML = `${num2.value} x3 = ${(Number(num2.value) ** 3)}`
+                palka.innerHTML = ''
+                res_2.innerHTML = ''
+            }
+            else {
+                res.innerHTML = `First: ${num1.value} x3 = ${(Number(num1.value) ** 3)}`
+                palka.innerHTML = '|||'
+                res_2.innerHTML = `Second: ${num2.value} x3 = ${(Number(num2.value) ** 3)}`
+            }
+        }
+    </script>
 </body>
 </html>
