@@ -319,96 +319,68 @@ document.addEventListener('keydown', function(event){
     }
 });
 
-function addToRes(value) {
-    ResList = mas.res.innerHTML
-    mas.res.innerHTML = ResList[2]
-}
-
 function buttonClick(value) {
-    switch (value) {
-        case ('clear'):
-            mas.res.innerHTML = '0'
-            break
-        case ('clear_1'):
-            if (mas.res.innerHTML.length == 1) {
-                mas.res.innerHTML = '0'
-                break
-            }
-            else {
-                mas.res.innerHTML = mas.res.innerHTML.slice(0, -1)
-                break
-            }
-    }
-    if (fRes.endsWith('+') || fRes.endsWith('-') || fRes.endsWith('*') || fRes.endsWith('/') || fRes.endsWith('**') || fRes.endsWith('%')) {
-        fRes+= value
-    }
-    else {
-        fRes[-1] = value
-    }
     fRes += value
     mas.res.innerHTML = fRes
 }
 function operationClick(value) {
-        // case ('.'):
-        //     if (!((mas.res.innerHTML).includes('.'))) {
-        //         mas.res.innerHTML +='.'
-        //         // addToRes()
-        //         break
-        //     }
-        //     else {
-        //         break
-        //     }
-        if (fRes.endsWith('+'))
-        fRes += value
-        // switch (value) {
-        //     // if (fRes.endsWith('+') || fRes.endsWith('-') || fRes.endsWith('*') || fRes.endsWith('/') || fRes.endsWith('**') || fRes.endsWith('%')) {
-        //     //     fRes+= value
-        //     // }
-        //     // else {
-        //     //     fRes[-1] = value
-        //     // }
-        //     case ('+'):
-        //         fRes +='+'
-        //         break
-        //     case ('-'):
-        //         if (!((mas.res.innerHTML).includes('-'))) {
-        //             mas.res.innerHTML +='-'
-        //             break
-        //         }
-        //         else {
-        //             break
-        //         }
-        //     case ('*'):
-        //         if (!((mas.res.innerHTML).includes('*'))) {
-        //             mas.res.innerHTML +='*'
-        //             break
-        //         }
-        //         else {
-        //             break
-        //         }
-        //     case ('/'):
-        //         if (!((mas.res.innerHTML).includes('/'))) {
-        //             mas.res.innerHTML +='/'
-        //             break
-        //         }
-        //         else {
-        //             break
-        //         }
-        //     case ('**'):
-        //         if (!((mas.res.innerHTML).includes('**'))) {
-        //             mas.res.innerHTML +='**'
-        //             break
-        //         }
-        //         else {
-        //             break
-        //         }
-        //     case ('%'):
-        //         if (!((mas.res.innerHTML).includes('%'))) {
-        //             mas.res.innerHTML +='%'
-        //             break
-        //         }
-        //         else {
-        //             break
-        //         }
-        //     }
+        if (!fRes.endsWith('+') && !fRes.endsWith('-') && !fRes.endsWith('*') && !fRes.endsWith('/') && !fRes.endsWith('**') && !fRes.endsWith('%')) {
+            fRes += value
+        }
+        mas.res.innerHTML = fRes
+}
+
+function specialActionClick(value) {
+    switch (value) {
+        case ('clear'):
+            fRes = ''
+            mas.res.innerHTML = '0'
+            break
+        case ('clear_1'):
+            if (fRes.length <= 1) {
+                fRes = ''
+                mas.res.innerHTML = '0'
+                break
+            }
+            else {
+                fRes = fRes.slice(0, -1)
+                mas.res.innerHTML = mas.res.innerHTML.slice(0, -1)
+                break
+            }
+    }
+}
+
+function resultButtonClick() {
+    let oppIndexList = ''
+    let fResE = 0
+    let fResEL = []
+    let target = '+'
+    let pos = -1
+    while ((pos = fRes.indexOf(target, pos + 1)) != -1) {
+        oppIndexList += pos
+    }
+
+    for (let i = 0; oppIndexList.length >= i; i++) {
+        let aftOpp = '', preOpp = ''
+        console.log(i)
+        if (i > 0) {
+            preOpp = fRes.slice(Number(oppIndexList[i-2])+1, oppIndexList[i-1])
+            console.log(preOpp)
+            // aftOpp = (fRes.includes('+', Number(oppIndexList[i-1])+1)) ? fRes.slice(Number(oppIndexList[i])+1, oppIndexList[i+1]) : fRes.slice(Number(oppIndexList[i])+1, fRes.length)
+            aftOpp = fRes.slice(Number(oppIndexList[i-1])+1, oppIndexList[i])
+            console.log(aftOpp)
+        }
+        else {
+            preOpp = fRes.slice(0, oppIndexList[i])
+            aftOpp = fRes.slice(Number(oppIndexList[i])+1, oppIndexList[i+1])
+        }
+        fResEL.unshift(Number(preOpp), Number(aftOpp))
+        console.log(fResE)
+        console.log(fResEL)
+    }
+    for (let i = 0; fResEL.length-3 >= i; i++) {
+        fResE += fResEL[i]
+    }
+    fRes = ''
+    mas.res.innerHTML = fResE
 }

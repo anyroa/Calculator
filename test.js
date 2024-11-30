@@ -38,6 +38,21 @@
 
 // let a = 'sdf+-'
 
-// if (a.endsWith('+') || a.endsWith('-')) {
+// if (a[-1] == '+' || a[-1] == '-') {
 //     console.log('yes')
 // }
+
+// let a = 'asd'
+
+// a[2] = "T"
+
+// console.log(a)
+
+// console.log('12' + '52')
+
+// let a = 'asdf'
+
+// console.log(a[2])
+
+let p = 'asstt'
+console.log(p.slice('0', '2'))
