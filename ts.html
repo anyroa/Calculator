@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input 
+            class="number_1" 
+            type="text" 
+            placeholder="Число 1">
+        <input 
+            class="number_2" 
+            type="text" 
+            placeholder="Число 2">
+        <button class="plus">+</button>
+        <button class="min">-</button>
+        <button class="kob">*</button>
+        <button class="del">/</button>
+        <button class="step">**</button>
+        <button class="ostat">%</button>
+        <button class="kub">x<sup>3</sup></button>
+    </div>
+    <h1>
+        Результат: <span class="result">0</span> <span class="palka"></span> <span class="result_2"></span>
+    </h1>
+    <script>
+        let num1 = document.querySelector('.number_1')
+        let num2 = document.querySelector('.number_2')
+        let but_plus = document.querySelector('.plus')
+        let but_min = document.querySelector('.min')
+        let but_kob = document.querySelector('.kob')
+        let but_del = document.querySelector('.del')
+        let but_step = document.querySelector('.step')
+        let but_ostat = document.querySelector('.ostat')
+        let but_kub = document.querySelector('.kub')
+        let res = document.querySelector('.result')
+        let res_2 = document.querySelector('.result_2')
+        let palka = document.querySelector('.palka')
+        but_plus.onclick = function() {
+            res.innerHTML = `${num1.value} + ${num2.value} = ${(Number(num1.value) + Number(num2.value)).toFixed(2)}`
+        }
+        but_min.onclick = function() {
+            res.innerHTML = `${num1.value} - ${num2.value} = ${(Number(num1.value) - Number(num2.value)).toFixed(2)}`
+        }
+        but_kob.onclick = function() {
+            res.innerHTML = `${num1.value} * ${num2.value} = ${(Number(num1.value) * Number(num2.value)).toFixed(2)}`
+        }
+        but_del.onclick = function() {
+            res.innerHTML = `${num1.value} / ${num2.value} = ${(Number(num1.value) / Number(num2.value)).toFixed(2)}`
+        }
+        but_step.onclick = function() {
+            res.innerHTML = `${num1.value} ** ${num2.value} = ${(Number(num1.value) ** Number(num2.value)).toFixed(2)}`
+        }
+        but_ostat.onclick = function() {
+            res.innerHTML = `${num1.value} % ${num2.value} = ${(Number(num1.value) % Number(num2.value)).toFixed(2)}`
+        }
+        but_kub.onclick = function() {
+            if (num2.value == false) {
+                res.innerHTML = `${num1.value} x3 = ${(Number(num1.value) ** 3)}`
+                palka.innerHTML = ''
+                res_2.innerHTML = ''
+            }
+            else if (num1.value == false) {
+                res.innerHTML = `${num2.value} x3 = ${(Number(num2.value) ** 3)}`
+                palka.innerHTML = ''
+                res_2.innerHTML = ''
+            }
+            else {
+                res.innerHTML = `First: ${num1.value} x3 = ${(Number(num1.value) ** 3)}`
+                palka.innerHTML = '|||'
+                res_2.innerHTML = `Second: ${num2.value} x3 = ${(Number(num2.value) ** 3)}`
+            }
+        }
+    </script>
+</body>
+</html>

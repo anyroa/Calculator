@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="display" id="res">
+            
+        </div>
+        <div class="buttons">
+            <button 
+                onclick="buttonClick('clear')" 
+                class="button" id="clear">C</button>
+
+            <button 
+                onclick="buttonClick('clear_1')" 
+                class="button" id="clear_1">&lt;</button>
+
+            <button 
+                onclick="buttonClick('%')" 
+                class="button" id="%">%</button>
+
+            <button 
+                onclick="buttonClick('**')" 
+                class="button" id="**">**</button>
+
+            <button 
+                onclick="buttonClick('7')" 
+                class="button" id="7">7</button>
+
+            <button 
+                onclick="buttonClick('8')" 
+                class="button" id="8">8</button>
+
+            <button 
+                onclick="buttonClick('9')" 
+                class="button" id="9">9</button>
+
+            <button 
+                onclick="buttonClick('+')" 
+                class="button" id="+">+</button>
+
+            <button 
+                onclick="buttonClick('4')" 
+                class="button" id="4">4</button>
+
+            <button 
+                onclick="buttonClick('5')" 
+                class="button" id="5">5</button>
+
+            <button 
+                onclick="buttonClick('6')" 
+                class="button" id="6">6</button>
+
+            <button 
+                onclick="buttonClick('-')" 
+                class="button" id="-">-</button>
+
+            <button
+                onclick="buttonClick('1')" 
+                class="button" id="1">1</button>
+
+            <button 
+                onclick="buttonClick('2')" 
+                class="button" id="2">2</button>
+
+            <button 
+                onclick="buttonClick('3')" 
+                class="button" id="3">3</button>
+
+            <button 
+                onclick="buttonClick('*')" 
+                class="button" id="*">*</button>
+
+            <button 
+                onclick="buttonClick('0')" 
+                class="button" id="0">0</button>
+
+            <button
+                onclick="buttonClick('.')"
+                class="button" id=".">.</button>
+
+            <button 
+                onclick="buttonClick('/')"
+                class="button" id="/">/</button>
+
+            <button
+                onclick="buttonClick('=')"
+                class="button" id="=">=</button>
+        </div>
+    </div>
+    <script src="calc.js" defer></script>
+</body>
+</html>
