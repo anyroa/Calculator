@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="display" id="res">0</div>
+        <div class="display" id="res"></div>
         <div class="buttons">
             <button 
-                onclick="specialActionClick('clear')" 
+                onclick="clearFunc('clear')" 
                 class="button" id="clear">C</button>
 
             <button 
@@ -28,55 +28,55 @@
                 class="button" id="**">**</button>
 
             <button 
-                onclick="buttonClick('7')" 
+                onclick="numbersFunc('7')" 
                 class="button" id="7">7</button>
 
             <button 
-                onclick="buttonClick('8')" 
+                onclick="numbersFunc('8')" 
                 class="button" id="8">8</button>
 
             <button 
-                onclick="buttonClick('9')" 
+                onclick="numbersFunc('9')" 
                 class="button" id="9">9</button>
 
             <button 
-                onclick="operationClick('+')" 
+                onclick="opFunc('+')" 
                 class="button" id="+">+</button>
 
             <button 
-                onclick="buttonClick('4')" 
+                onclick="numbersFunc('4')" 
                 class="button" id="4">4</button>
 
             <button 
-                onclick="buttonClick('5')" 
+                onclick="numbersFunc('5')" 
                 class="button" id="5">5</button>
 
             <button 
-                onclick="buttonClick('6')" 
+                onclick="numbersFunc('6')" 
                 class="button" id="6">6</button>
 
             <button 
-                onclick="operationClick('-')" 
+                onclick="opFunc('-')" 
                 class="button" id="-">-</button>
 
             <button
-                onclick="buttonClick('1')" 
+                onclick="numbersFunc('1')" 
                 class="button" id="1">1</button>
 
             <button 
-                onclick="buttonClick('2')" 
+                onclick="numbersFunc('2')" 
                 class="button" id="2">2</button>
 
             <button 
-                onclick="buttonClick('3')" 
+                onclick="numbersFunc('3')" 
                 class="button" id="3">3</button>
 
             <button 
-                onclick="operationClick('*')" 
+                onclick="opFunc('*')" 
                 class="button" id="*">*</button>
 
             <button 
-                onclick="buttonClick('0')" 
+                onclick="numbersFunc('0')" 
                 class="button" id="0">0</button>
 
             <button
@@ -84,11 +84,11 @@
                 class="button" id=".">.</button>
 
             <button 
-                onclick="operationClick('/')"
+                onclick="opFunc('/')"
                 class="button" id="/">/</button>
 
             <button
-                onclick="resultButtonClick()"
+                onclick="resultFunc()"
                 class="button" id="=">=</button>
         </div>
     </div>

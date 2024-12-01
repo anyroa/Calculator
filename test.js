@@ -54,5 +54,20 @@
 
 // console.log(a[2])
 
-let p = 'asstt'
-console.log(p.slice('0', '2'))
+// let p = 'asstt'
+// console.log(p.slice('0', '2'))
+
+// let a = '5+5'
+
+// console.log(Number(a))
+
+// let a = 10
+// let b = 5
+// let c = 10
+// a+= b - c
+
+// console.log(a)
+
+// if (5) {
+//     console.log(1)
+// }
